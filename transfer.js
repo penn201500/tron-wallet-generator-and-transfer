@@ -32,7 +32,7 @@ async function fetchTransactionInfoFromTronGrid(txid) {
 }
 
 function calculateGasFee(cost) {
-  const netFee = cost.net_fee_cost || 0;
+  const netFee = cost.net_fee || 0;
   const energyFee = cost.energy_fee || 0;
   const memoFee = cost.memoFee || 0;
   const accountCreateFee = cost.account_create_fee || 0;
