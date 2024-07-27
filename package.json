@@ -1,0 +1,21 @@
+{
+  "name": "tron-wallet-generator-and-transfer",
+  "version": "1.0.0",
+  "main": "generator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "base-58": "^0.0.1",
+    "bip39": "^3.1.0",
+    "csv-stringify": "^6.5.0",
+    "dotenv": "^16.4.5",
+    "ethereum-cryptography": "^2.2.1",
+    "hdkey": "^2.1.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}
