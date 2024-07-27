@@ -132,3 +132,4 @@ dist
 # misc
 wallets_*.csv
 wallets_*.json
+transfer-transactions_*.csv
