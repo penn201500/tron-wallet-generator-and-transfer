@@ -12,8 +12,6 @@ async function fetchTransactionInfoFromTronGrid(txid) {
     const response = await axios.get(tronGridEndpoint, {
       headers: {
         'Accept': 'application/json, text/plain, */*',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-        'Accept-Encoding': 'gzip, deflate, br',
       },
     });
     if (response.status !== 200) {
@@ -71,7 +69,7 @@ async function main() {
 
       // Perform the transfer
       try {
-        const transaction = await tronWeb.trx.sendTransaction(receiver, tronWeb.toSun(randomAmount));
+        const transaction = await tronWeb.trx.sendTransaction(receiver, tronWeb.toSun(randomAmount));  // TODO: Whether add gas limit for transaction
         // console.log(`Transaction: ${JSON.stringify(transaction, null, 2)}`);
 
         await sleep(5000); // Sleep for 5 seconds before making the next request
