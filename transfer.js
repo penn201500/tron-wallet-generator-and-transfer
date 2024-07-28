@@ -68,7 +68,7 @@ async function main() {
 
       // Perform the transfer
       try {
-        const transaction = await tronWeb.trx.sendTransaction(receiver, tronWeb.toSun(randomAmount)) // TODO: Whether add gas limit for transaction
+        const transaction = await tronWeb.trx.sendTransaction(receiver, tronWeb.toSun(randomAmount))
         // console.log(`Transaction: ${JSON.stringify(transaction, null, 2)}`);
 
         await sleep(5000) // Sleep for 5 seconds before making the next request
