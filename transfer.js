@@ -90,10 +90,6 @@ async function main() {
 
         const gasFee = calculateGasFee(receipt.cost)
 
-        console.log(`🚀 ~ file: transfer.js:126 ~ main ~ receipt.cost:\n`, receipt.cost)
-
-        console.log(`🚀 ~ file: transfer.js:108 ~ main ~ gasFee:\n`, gasFee)
-
         console.log(`Transferred ${randomAmount} TRX to ${receiver}, TxHash: ${transaction.txid}`)
         transactions.push({
           timestamp: timestampToDatetime(receipt.timestamp),
