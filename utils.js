@@ -50,12 +50,15 @@ function timestampToDatetime(timestamp) {
 
 // Function to get a random amount within a specified range
 function getRandomAmount(amount) {
-  const parsedAmount = parseFloat(amount); // TODO: Update the fake random function
+  const parsedAmount = parseFloat(amount);
   if (isNaN(parsedAmount)) {
     throw new Error("Invalid amount provided.");
   }
-  // You can adjust the logic to get a random amount if needed.
-  return parsedAmount;
+  const minFactor = 0.8;
+  const maxFactor = 1.0;
+  const min = parsedAmount * minFactor;
+  const max = parsedAmount * maxFactor;
+  return (Math.random() * (max - min) + min).toFixed(2);
 }
 
 module.exports = { getFormattedDateTime, writeDataToFile, readWalletAddresses, timestampToDatetime, getRandomAmount };
