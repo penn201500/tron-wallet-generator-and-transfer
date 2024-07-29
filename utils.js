@@ -42,6 +42,24 @@ function readWalletAddresses(filePath) {
   throw new Error("Unsupported file format. Only JSON and CSV are supported.");
 }
 
+// Function to read wallet addresses and its privateKey from a file (CSV or JSON)
+function readWalletsWithPrivateKeys(filePath) {
+  const fileContent = fs.readFileSync(filePath, 'utf8');
+  if (filePath.endsWith('.json')) {
+    return JSON.parse(fileContent);
+  } else if (filePath.endsWith('.csv')) {
+    const records = parse(fileContent, {
+      columns: true,
+      skip_empty_lines: true,
+    });
+    return records.map(record => ({
+      address: record.WalletAddress,
+      privateKey: record.PrivateKey,
+    }));
+  }
+  throw new Error('Unsupported file format. Only JSON and CSV are supported.');
+}
+
 // Function to convert timestamp to datetime string
 function timestampToDatetime(timestamp) {
   const date = new Date(timestamp);
@@ -61,4 +79,4 @@ function getRandomAmount(amount) {
   return (Math.random() * (max - min) + min).toFixed(2);
 }
 
-module.exports = { getFormattedDateTime, writeDataToFile, readWalletAddresses, timestampToDatetime, getRandomAmount };
+module.exports = { getFormattedDateTime, writeDataToFile, readWalletAddresses, readWalletsWithPrivateKeys, timestampToDatetime, getRandomAmount };
