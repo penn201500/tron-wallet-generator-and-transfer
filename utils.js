@@ -1,4 +1,5 @@
 const fs = require("fs")
+const { parse } = require("csv-parse/sync")
 
 // Function to format the current date and time as "YYYY-MM-DD_HH-MM-SS"
 function getFormattedDateTime() {
@@ -34,10 +35,10 @@ function readWalletAddresses(filePath) {
     return wallets.map(wallet => wallet.address)
   } else if (filePath.endsWith(".csv")) {
     const records = parse(fileContent, {
-      columns: false,
+      columns: true,
       skip_empty_lines: true,
     })
-    return records.map(record => record[0])
+    return records.map(record => record['WalletAddress'])
   }
   throw new Error("Unsupported file format. Only JSON and CSV are supported.")
 }
