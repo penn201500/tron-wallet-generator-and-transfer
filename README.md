@@ -9,6 +9,7 @@ This project is a Node.js script for generating Tron wallets **locally** and tra
 - Convert private keys to Tron addresses using Base58Check encoding.
 - Output generated wallets in CSV or JSON format.
 - Transfer TRX from one address to multiple addresses specified in a wallets file.
+- Retrieve TRX from multiple wallets to a central wallet.
 
 ## Requirements
 
@@ -69,7 +70,18 @@ Example:
 node transfer.js TFDqAKZpCF2uHsa9NjPBNHspGcoeXdFfw4 wallets_2024-07-27_16-18-11.csv 1
 ```
 
-## Example
+### Retrieving TRX
+
+To retrieve TRX from multiple wallets specified in a file to a central wallet, run the script with the following command:
+
+```bash
+node retrieveFunds.js <wallets_file_path> <central_wallet_address>
+```
+
+- `<wallets_file_path>`: The path to the file containing the wallets with private keys.
+- `<central_wallet_address>`: The address of the central wallet to which the funds will be transferred.
+
+## Examples
 
 An example of generated output in CSV format:
 
