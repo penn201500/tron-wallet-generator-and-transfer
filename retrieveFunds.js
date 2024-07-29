@@ -9,10 +9,14 @@ function sleep(ms) {
 
 async function fetchTransactionInfoFromTronGrid(txid) {
   const tronGridEndpoint = `${process.env.TRONSCAN_QUERY_API}${txid}`
-  console.log(`Fetching transaction info from: ${tronGridEndpoint}`)
-
   try {
-    const response = await axios.get(tronGridEndpoint)
+    const response = await axios.get(tronGridEndpoint, {
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "TRON-PRO-API-KEY": process.env.TRONGRID_API_KEY,
+      },
+    })
+    console.log(`Fetching transaction info from: ${tronGridEndpoint}`)
     if (response.status !== 200) {
       throw new Error(`Failed to fetch transaction info from TronGrid: ${response.statusText}`)
     }

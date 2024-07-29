@@ -12,6 +12,7 @@ async function fetchTransactionInfoFromTronGrid(txid) {
     const response = await axios.get(tronGridEndpoint, {
       headers: {
         Accept: "application/json, text/plain, */*",
+        'TRON-PRO-API-KEY': process.env.TRONGRID_API_KEY,
       },
     })
     if (response.status !== 200) {
